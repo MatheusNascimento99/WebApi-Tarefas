@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Ex_Dio_Tarefas.Context;
 using Ex_Dio_Tarefas.Entities;
+using Ex_Dio_Tarefas.Enum;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -78,13 +79,49 @@ namespace Ex_Dio_Tarefas.Controllers
 
 
         //Get/Tarefa/ObterPorTitulo
+        [HttpGet("ObterPorTitulo")]
+        public IActionResult ObterPorTitulo(string titulo)
+        {
+            var tarefa = _context.Tarefas.Where(x => x.Titulo.Contains(titulo));
+            if (tarefa == null)
+                return NotFound();
+            return Ok(tarefa);
+        }
 
-        //Get/Tarefa/ObterPorData
+
+        //Get/Tarefa/ObterPorDescrição
+        [HttpGet("ObterPorDescrição")]
+        public IActionResult ObterPorDescricao(string descricao)
+        {
+            var tarefa = _context.Tarefas.Where(x => x.Descricao.Contains(descricao));
+            if (tarefa == null)
+                return NotFound();
+            return Ok(tarefa);
+        }
+
+
 
         //Get/Tarefa/ObterPorStatus
+        [HttpGet("ObterPorStatus")]
+        public IActionResult ObterPorStatus(TarefaEnum status)
+        {
+            var tarefa = _context.Tarefas.Where(x => x.Status == status).ToList();
+            if (!tarefa.Any())
+                return NotFound("Nenhuma tarefa encontrada com o status especificado.");
+            return Ok(tarefa);
+
+        }
 
 
-
+        //Get/Tarefa/ObterPorData
+        [HttpGet("ObterPorData")]
+        public IActionResult ObterPorData(DateTime data)
+        {
+            var tarefa = _context.Tarefas.Where(x => x.Data.Date == data.Date).ToList();
+            if (!tarefa.Any())
+                return NotFound("Nenhuma tarefa encontrada com o status especificado.");
+            return Ok(tarefa);
+        }
 
     }
 }
