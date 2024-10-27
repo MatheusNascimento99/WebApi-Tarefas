@@ -1,0 +1,70 @@
+# .NET Core
+bin/
+obj/
+*.suo
+*.user
+*.userprefs
+*.sln.ide
+*.vs/
+.vscode/
+**/Properties/launchSettings.json
+
+# ASP.NET Core
+appsettings*.json
+appsettings.Development.json
+
+# Visual Studio
+.vs/
+.vscode/
+*.sln.ide
+*.suo
+*.user
+*.userprefs
+*.ncb
+*.aps
+*.pdb
+*.ilk
+*.log
+
+# Packages
+*.nupkg
+*.snupkg
+**/packages/
+
+# Database files
+*.mdf
+*.ldf
+*.ndf
+
+# Backup files
+*.bak
+*.tmp
+
+# Other files
+*.db
+*.sql
+*.sqlite
+*.db-journal
+
+# IDE files
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# ReSharper
+_ReSharper*/
+*.DotSettings
+
+# Rider
+.idea/
+*.sln.iml
+
+# Local history for JetBrains IDEs
+.idea/localHistory/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+logs/
